@@ -20,23 +20,37 @@ A simple full-stack web app to keep track of books you've read, take notes, and 
 
 ### 2. Install Dependencies
 
-```bash npm install```
+```bash 
+npm install
+```
 ### 3. Create PostgreSQL Database
 Make sure PostgreSQL is installed and running, then create the database:
-```bash createdb book_notes```
+```bash
+createdb book_notes
+```
 ### 4. Set Up the Database Schema
 
-```bash psql -U yourUsername -d book_notes -f db/schema.sql```
+```bash
+psql -U yourUsername -d book_notes -f db/schema.sql
+```
 Replace yourUsername with your actual PostgreSQL username.
 
 ### 5. Configure Environment Variables
 Create a .env file in the root directory:
 
-```bash DB_USER=yourUsername DB_HOST=localhost DB_NAME=book_notes DB_PASSWORD=yourPassword DB_PORT=5432```
+```bash
+DB_USER=yourUsername
+DB_HOST=localhost
+DB_NAME=book_notes
+DB_PASSWORD=yourPassword
+DB_PORT=5432
+```
 Don’t forget to replace the values with your actual DB credentials.
 
 ### 6. Start the Server
-```bash npm start```
+```bash 
+node index.js
+```
 Then open your browser and go to:
 http://localhost:3000
 
