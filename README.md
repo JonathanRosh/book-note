@@ -16,7 +16,10 @@ A simple full-stack web app to keep track of books you've read, take notes, and 
 
 ### 1. Clone the Repository
 
-```bash git clone https://github.com/YOUR_USERNAME/book-notes-app.git cd book-notes-app```
+```bash
+git clone https://github.com/YOUR_USERNAME/book-notes-app.git
+cd book-notes-app
+```
 
 ### 2. Install Dependencies
 
