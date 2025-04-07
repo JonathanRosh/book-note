@@ -1,0 +1,68 @@
+/* Search Result List (add.ejs specific) */
+.search-results {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.search-results h3 {
+  font-size: 1.5rem;
+  color: #333;
+  text-align: center;
+}
+
+.search-result-card {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  gap: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.search-result-card:hover {
+  transform: scale(1.01);
+}
+
+.search-cover {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.search-info {
+  flex: 1;
+}
+
+.search-title {
+  font-size: 1.2rem;
+  color: #222;
+  margin-bottom: 0.25rem;
+}
+
+.search-author {
+  font-size: 0.95rem;
+  color: #666;
+}
+
+.select-button {
+  padding: 8px 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.select-button:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Book</title>
+    <link rel="stylesheet" href="/main.css" />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <%- include('partials/header.ejs') %>
+
+      <main>
+        <form action="/add" method="POST" class="book-form">
+          <h2>Add a New Book</h2>
+
+          <label for="bookName">Book Title:</label>
+          <input type="text" id="bookName" name="bookName"
+          value="<%=locals.placeHolder ? placeHolder.split("+").join(" ") : ''
+          %> " required />
+          <button type="submit">Search Book</button>
+        </form>
+
+        <% if (locals.booksList) { %>
+        <section class="search-results">
+          <h3>Select a Book</h3>
+          <% booksList.forEach((book) => { %>
+          <div class="search-result-card">
+            <img
+              class="search-cover"
+              src="https://covers.openlibrary.org/b/olid/<%= book.cover_edition_key %>-M.jpg"
+              alt="<%= book.title %> book cover"
+              loading="lazy"
+            />
+            <div class="search-info">
+              <h4 class="search-title"><%= book.title %></h4>
+              <p class="search-author">
+                by <%= book.author_name?.[0] || "Unknown" %>
+              </p>
+            </div>
+            <form action="/confirm-add" method="POST">
+              <input type="hidden" name="title" value="<%= book.title %>" />
+              <input type="hidden" name="author" value="<%=
+              book.author_name?.[0] || "" %>" />
+              <input
+                type="hidden"
+                name="cover_url"
+                value="https://covers.openlibrary.org/b/olid/<%= book.cover_edition_key %>-M.jpg"
+              />
+              <button type="submit" class="select-button">Choose</button>
+            </form>
+          </div>
+          <% }) %>
+        </section>
+        <% } %>
+      </main>
+
+      <%- include('partials/footer.ejs') %>
+    </div>
+  </body>
+</html>

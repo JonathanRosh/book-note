@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Book-Notes</title>
+    <link rel="stylesheet" href="/main.css" />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <%- include('partials/header.ejs') %>
+      <main>
+        <% if(locals.books){%> <% books.forEach(book => { %>
+
+        <div class="book-card">
+          <img
+            class="book-cover"
+            src="<%= book.cover_url %>"
+            alt="<%= book.book_name %> book cover"
+            loading="lazy"
+          />
+          <div class="book-info">
+            <h2 class="book-title">
+              <%= book.book_name.toUpperCase() %> - BY <%=
+              book.author.toUpperCase() %>
+            </h2>
+            <h3 class="book-details">
+              Date Read: <%= book.date_read %> <br />
+              My Recommendation: <%= book.recommendation_rate %>/10
+            </h3>
+            <p class="book-notes"><%= book.notes %></p>
+          </div>
+
+          <div class="book-actions">
+            <form action="/edit" method="GET">
+              <input type="hidden" name="id" value="<%= book.id %>" />
+              <button type="submit">Edit</button>
+            </form>
+
+            <form
+              action="/delete"
+              method="POST"
+              onsubmit="return confirm('Delete this book?')"
+            >
+              <input type="hidden" name="id" value="<%= book.id %>" />
+              <button class="delete" type="submit">Delete</button>
+            </form>
+          </div>
+        </div>
+        <% }); %> <% }%>
+      </main>
+      <%- include('partials/footer.ejs') %>
+    </div>
+  </body>
+</html>
