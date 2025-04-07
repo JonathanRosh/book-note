@@ -54,7 +54,15 @@ book-notes-app/
 │   ├── db.js
 │   └── schema.sql
 ├── public/
-│   └── main.css
+│   ├── main.css
+│   └── styles/
+│       ├── header.css
+│       ├── footer.css
+│       ├── search.css
+│       ├── forms.css
+│       ├── book-cards.css
+│       ├── reset.css
+│       └── layout.css
 ├── views/
 │   ├── add.ejs
 │   ├── edit.ejs
