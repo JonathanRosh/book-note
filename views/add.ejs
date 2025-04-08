@@ -23,6 +23,12 @@
 
         <% if (locals.booksList) { %>
         <section class="search-results">
+          <% if(booksList.length === 0){ %>
+          <h3>
+            Book not found, please try to be more specific with the book title
+          </h3>
+
+          <% } else{ %>
           <h3>Select a Book</h3>
           <% booksList.forEach((book) => { %>
           <div class="search-result-card">
@@ -52,7 +58,7 @@
           </div>
           <% }) %>
         </section>
-        <% } %>
+        <% } %> <% } %>
       </main>
 
       <%- include('partials/footer.ejs') %>
